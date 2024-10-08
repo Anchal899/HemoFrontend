@@ -7,7 +7,7 @@ const Camps = () => {
     const [state, setState] = useState(0);
     const [district, setDistrict] = useState(0);
     const [camps, setCamps] = useState([]);
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     useEffect(() => {
         fetch(data.states[state].state, data.states[state].districts[district]);
     }, []);

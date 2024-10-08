@@ -8,7 +8,7 @@ function AuthContextProvider(props) {
   const [user, setUser] = useState(null); // Initialize user as null
 
   async function getLoggedIn() {
-    const BASE_URL = 'http://localhost:3177';
+    const BASE_URL = 'https://hemobackend.onrender.com';
     try {
       const loggedInRes = await axios.get(`${BASE_URL}/auth/loggedIn`, { withCredentials: true });
       setLoggedIn(loggedInRes.data.auth);

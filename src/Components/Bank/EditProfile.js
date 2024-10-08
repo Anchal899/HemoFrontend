@@ -6,7 +6,7 @@ import AuthContext from "../context/AuthContext";
 import mapboxgl from "mapbox-gl";
 
 const EditProfile = () => {
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     const { handle } = useParams();
     const { getLoggedIn, user } = useContext(AuthContext);
     const [name, setName] = useState("");

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "../Api";
 
 const Stock = () => {
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     const [data, setData] = useState([]);
     useEffect(() => {
         axios.get(`${BASE_URL}/bank/getStock`).then((r) => {

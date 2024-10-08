@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "../Api";
 
 const CampsCheck = (props) => {
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     const [edit, setEdit] = useState(true);
     const [units, setUnits] = useState(props.data.units);
     const [status, setStatus] = useState(props.data.status);

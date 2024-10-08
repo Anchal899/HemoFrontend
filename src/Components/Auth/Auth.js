@@ -10,7 +10,7 @@ import "./map.css";
 
 const Auth = (props) => {
     axios.defaults.withCredentials = true;
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     const { type, handle } = useParams();
     const [name, setName] = useState("");
     const [hospital, setHospital] = useState("");

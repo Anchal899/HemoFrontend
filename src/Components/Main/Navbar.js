@@ -11,7 +11,7 @@ const Navbar = (props) => {
     const [theme, setTheme] = useState(0);
     const { getLoggedIn } = useContext(AuthContext);
     const doc = document.documentElement.classList;
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     useEffect((e) => {
         let t = localStorage.getItem("theme");
         if (!t) {

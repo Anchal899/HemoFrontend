@@ -3,7 +3,7 @@ import axios from "../Api";
 import CampEdit from "./CampEdit";
 
 const Camps = () => {
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     const [data, setData] = useState([]);
     const [popup, setPopup] = useState(-1);
     useEffect(() => {

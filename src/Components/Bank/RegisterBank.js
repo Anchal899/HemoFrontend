@@ -4,7 +4,7 @@ import data from "../../assets/data.json";
 import axios from "../Api";
 
 const RegisterBank = (props) => {
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     const [name, setName] = useState("");
     const [organizer, setOrganizer] = useState("");
     const [contact, setContact] = useState(0);

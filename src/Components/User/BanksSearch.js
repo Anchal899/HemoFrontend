@@ -7,7 +7,7 @@ const BanksSearch = (props) => {
     const [popup, setPopup] = useState(-1);
     const [data, setData] = useState([]);
     const [selected, setSelected] = useState(-1);
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     useEffect(() => {
         axios.post(`${BASE_URL}/bank/user`, props, { withCredentials: true }).then(async (res) => {
             setData(res.data);

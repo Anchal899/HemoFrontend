@@ -18,7 +18,7 @@ const EditProfile = () => {
     const [address, setAddress] = useState("");
     const [blood, setBlood] = useState(0);
     const [edit, setEdit] = useState(true);
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
     useEffect(() => {
         setName(user.name);

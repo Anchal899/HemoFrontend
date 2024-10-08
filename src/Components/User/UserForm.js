@@ -20,7 +20,7 @@ const UserForm = () => {
     const [gender, setGender] = useState("male");
     const [district, setDistrict] = useState(0);
     const [me, setMe] = useState(false);
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
     useEffect(() => {
         if (handle == "donate") {

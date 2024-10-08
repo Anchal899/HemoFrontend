@@ -7,8 +7,9 @@ const BanksSearch = (props) => {
     const [popup, setPopup] = useState(-1);
     const [data, setData] = useState([]);
     const [selected, setSelected] = useState(-1);
+    const BASE_URL='http://localhost:3177';
     useEffect(() => {
-        axios.post('/bank/user', props, { withCredentials: true }).then(async (res) => {
+        axios.post(`${BASE_URL}/bank/user`, props, { withCredentials: true }).then(async (res) => {
             setData(res.data);
         }, (error) => {
             setData([]);

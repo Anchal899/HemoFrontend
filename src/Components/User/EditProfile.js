@@ -18,6 +18,7 @@ const EditProfile = () => {
     const [address, setAddress] = useState("");
     const [blood, setBlood] = useState(0);
     const [edit, setEdit] = useState(true);
+    const BASE_URL='http://localhost:3177';
     const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
     useEffect(() => {
         setName(user.name);
@@ -49,14 +50,14 @@ const EditProfile = () => {
             address: address,
         };
 
-        await axios.put(`/user/`, formData)
+        await axios.put(`${BASE_URL}/user/`, formData)
             .then(async (response) => {
                 setEdit(!edit);
                 await getLoggedIn();
                 alert("User updated successfully");
 
             }, (error) => {
-                alert("User not updated");
+                alert(error);
             });
     };
 
@@ -103,7 +104,7 @@ const EditProfile = () => {
                         <tr>
                             <td>
                                 <label for="blood" className="font-semibold  leading-8">Blood Group:<font color="red">*</font></label>
-                                <select name="blood" id="state" disabled={edit} onChange={(e) => setBlood(e.target.value)} className="w-full p-3 text-md border border-silver rounded">
+                                <select name="blood" id="blood" disabled={edit} onChange={(e) => setBlood(e.target.value)} className="w-full p-3 text-md border border-silver rounded">
                                     {
                                         bloodGroups.map((e, i) => <option value={i} selected={blood === i}>{e}</option>)
                                     }

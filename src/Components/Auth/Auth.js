@@ -7,9 +7,10 @@ import axios from "../Api";
 import mapboxgl from "mapbox-gl";
 import "./map.css";
 
+
 const Auth = (props) => {
     axios.defaults.withCredentials = true;
-
+    const BASE_URL='http://localhost:3177';
     const { type, handle } = useParams();
     const [name, setName] = useState("");
     const [hospital, setHospital] = useState("");
@@ -84,9 +85,9 @@ const Auth = (props) => {
             };
         }
 
-        await axios.post(`/auth/${handle}`, formData, { withCredentials: true }).then(async (res) => { }, (err) => alert(err.response.data.errorMessage));
+        await axios.post(`${BASE_URL}/auth/${handle}`, formData, { withCredentials: true }).then(async (res) => { }, (err) => alert(err.response.data.errorMessage));
         await getLoggedIn();
-        navigate(`/${handle == "bank" ? handle : "user"}/profile`)
+        navigate(`/${handle === "bank" ? handle : "user"}/profile`)
     };
 
     const logIn = async (e) => {
@@ -96,9 +97,9 @@ const Auth = (props) => {
                 phone: phone,
                 password: password,
             };
-            await axios.post(`/auth/login/${handle}`, formData, { withCredentials: true }).then(async (res) => { });
+            await axios.post(`${BASE_URL}/auth/login/${handle}`, formData, { withCredentials: true }).then(async (res) => { });
             await getLoggedIn();
-            navigate(`/${handle == "bank" ? handle : "user"}/profile`)
+            navigate(`/${handle === "bank" ? "bank" : "user"}/profile`)
         } catch (err) {
             alert(err.response.data.errorMessage);
         }

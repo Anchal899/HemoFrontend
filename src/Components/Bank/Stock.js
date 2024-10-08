@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from "../Api";
 
 const Stock = () => {
+    const BASE_URL='http://localhost:3177';
     const [data, setData] = useState([]);
     useEffect(() => {
-        axios.get("/bank/getStock").then((r) => {
+        axios.get(`${BASE_URL}/bank/getStock`).then((r) => {
             setData(r.data.stock);
         }).catch((err) => { alert("Something went wrong") })
     }, []);

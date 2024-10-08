@@ -6,6 +6,7 @@ import AuthContext from "../context/AuthContext";
 import mapboxgl from "mapbox-gl";
 
 const EditProfile = () => {
+    const BASE_URL='http://localhost:3177';
     const { handle } = useParams();
     const { getLoggedIn, user } = useContext(AuthContext);
     const [name, setName] = useState("");
@@ -68,7 +69,7 @@ const EditProfile = () => {
             category: category
         };
 
-        await axios.put(`/bank`, formData)
+        await axios.put(`${BASE_URL}/bank`, formData)
             .then(async (response) => {
                 setEdit(!edit);
                 await getLoggedIn();

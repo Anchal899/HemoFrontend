@@ -3,10 +3,11 @@ import axios from "../Api";
 import CampEdit from "./CampEdit";
 
 const Camps = () => {
+    const BASE_URL='http://localhost:3177';
     const [data, setData] = useState([]);
     const [popup, setPopup] = useState(-1);
     useEffect(() => {
-        axios.get("/camps").then((res) => {
+        axios.get(`${BASE_URL}/camps`).then((res) => {
             setData(res.data);
         }).catch((err) => {
             alert("Something went wrong")

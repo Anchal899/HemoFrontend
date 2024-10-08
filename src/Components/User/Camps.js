@@ -7,12 +7,13 @@ const Camps = () => {
     const [state, setState] = useState(0);
     const [district, setDistrict] = useState(0);
     const [camps, setCamps] = useState([]);
+    const BASE_URL='http://localhost:3177';
     useEffect(() => {
         fetch(data.states[state].state, data.states[state].districts[district]);
     }, []);
 
     const fetch = async (s, d) => {
-        await axios.get(`/camps/${s}/${d}`).then((res) => {
+        await axios.get(`${BASE_URL}/camps/${s}/${d}`).then((res) => {
             setCamps(res.data);
         }).catch((err) => {
             alert("Something went wrong")
@@ -20,7 +21,7 @@ const Camps = () => {
     }
 
     const register = async (i) => {
-        await axios.put(`/camps/${i}`).then((res) => {
+        await axios.put(`${BASE_URL}/camps/${i}`).then((res) => {
             alert("Registered for blood bank");
         }).catch((e) => {
             alert("Something went wrong");

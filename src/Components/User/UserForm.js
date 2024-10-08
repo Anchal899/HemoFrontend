@@ -20,6 +20,7 @@ const UserForm = () => {
     const [gender, setGender] = useState("male");
     const [district, setDistrict] = useState(0);
     const [me, setMe] = useState(false);
+    const BASE_URL='http://localhost:3177';
     const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
     useEffect(() => {
         if (handle == "donate") {
@@ -39,9 +40,9 @@ const UserForm = () => {
             units: units,
             disease: desc
         };
-        axios.post("/user/donate", formData, { withCredentials: true }).then((r) => {
+        axios.post(`${BASE_URL}/user/donate`, formData, { withCredentials: true }).then((r) => {
             alert("Donation request sent successfully");
-            navigate("/user/donations");
+            navigate(`${BASE_URL}/user/donations`);
         }).catch((e) => {
             alert("Something went wrong");
         });
@@ -57,9 +58,9 @@ const UserForm = () => {
             units: units,
             reason: desc
         };
-        axios.post("/user/request", formData, { withCredentials: true }).then((r) => {
+        axios.post(`${BASE_URL}/user/request`, formData, { withCredentials: true }).then((r) => {
             alert("Blood request sent successfully");
-            navigate("/user/requests");
+            navigate(`${BASE_URL}/user/requests`);
         }).catch((e) => {
             alert("Something went wrong");
         });

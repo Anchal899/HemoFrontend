@@ -4,6 +4,7 @@ import data from "../../assets/data.json";
 import axios from "../Api";
 
 const RegisterBank = (props) => {
+    const BASE_URL='http://localhost:3177';
     const [name, setName] = useState("");
     const [organizer, setOrganizer] = useState("");
     const [contact, setContact] = useState(0);
@@ -29,7 +30,7 @@ const RegisterBank = (props) => {
             address: address
         }
         if (props.todo === "register") {
-            await axios.post("/camps", formData, { withCredentials: true }).then((r) => {
+            await axios.post(`${BASE_URL}/camps`, formData, { withCredentials: true }).then((r) => {
                 alert("Registered New Blood Donation Camp ✅");
                 navigate("/bank/camps");
             }).catch((e) => {

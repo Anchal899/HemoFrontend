@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from "../Api";
 
 const CampsCheck = (props) => {
+    const BASE_URL='http://localhost:3177';
     const [edit, setEdit] = useState(true);
     const [units, setUnits] = useState(props.data.units);
     const [status, setStatus] = useState(props.data.status);
@@ -10,7 +11,7 @@ const CampsCheck = (props) => {
         props.data._id.status = props.data.status == 0 ? "Pending" : "Donated";
     })();
     return (
-        <div className='border border-blood border-2 shadow-md p-4 text-lg w-max rounded-xl'>
+        <div className='border-2 border-blood shadow-md p-4 text-lg w-max rounded-xl'>
             <table>
                 <tr>
                     <td>{props.data._id.name}</td>
@@ -31,7 +32,7 @@ const CampsCheck = (props) => {
                                 {status == 0 && <i class="fa-solid text-green fa-pen-to-square" onClick={() => setEdit(false)}></i>}</> :
                             <><i class="fa-solid text-green fa-check" onClick={
                                 async () => {
-                                    await axios.put(`/camps/${props.camp}/${props.data._id._id}`, { units: units }, { withCredentials: true }).then((r) => {
+                                    await axios.put(`${BASE_URL}/camps/${props.camp}/${props.data._id._id}`, { units: units }, { withCredentials: true }).then((r) => {
                                         alert("Updated");
                                         props.data.units = units;
                                         props.data.status = 1;
@@ -45,7 +46,7 @@ const CampsCheck = (props) => {
                     </td>
                 </tr>
             </table>
-        </div >
+        </div>
     )
 }
 

@@ -11,6 +11,7 @@ const Navbar = (props) => {
     const [theme, setTheme] = useState(0);
     const { getLoggedIn } = useContext(AuthContext);
     const doc = document.documentElement.classList;
+    const BASE_URL='http://localhost:3177';
     useEffect((e) => {
         let t = localStorage.getItem("theme");
         if (!t) {
@@ -53,7 +54,7 @@ const Navbar = (props) => {
                                     <Link
                                         to="/"
                                         onClick={async () => {
-                                            await axios.get("/auth/logout", { withCredentials: true }).then((r) => { });
+                                            await axios.get(`${BASE_URL}/auth/logout`, { withCredentials: true }).then((r) => { });
                                             await getLoggedIn();
                                         }}
                                         className={s1}

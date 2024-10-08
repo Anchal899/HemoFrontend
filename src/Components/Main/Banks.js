@@ -3,13 +3,13 @@ import data from "../../assets/data.json";
 import axios from "../Api";
 
 const Banks = () => {
-
+    const BASE_URL='http://localhost:3177';
     const [state, setState] = useState(0);
     const [district, setDistrict] = useState(0);
     const [filtered, setFiltered] = useState([]);
 
     useEffect(() => {
-        axios.get(`/bank/allBanks/${data.states[state].state}/${data.states[state].districts[district]}`).then((r) => { setFiltered(r.data); }).catch((e) => alert("Something went wrong"));
+        axios.get(`${BASE_URL}/bank/allBanks/${data.states[state].state}/${data.states[state].districts[district]}`).then((r) => { setFiltered(r.data); }).catch((e) => alert("Something went wrong"));
     }, [state, district])
 
     return (

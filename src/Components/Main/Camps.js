@@ -3,7 +3,7 @@ import data from "../../assets/data.json";
 import axios from "../Api";
 
 const Camps = () => {
-    const BASE_URL='http://localhost:3177';
+    const BASE_URL='https://hemobackend.onrender.com';
     const [state, setState] = useState(0);
     const [district, setDistrict] = useState(0);
     const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
